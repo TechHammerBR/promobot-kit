@@ -55,6 +55,8 @@ Valores longos (listas de palavras-chave) foram resumidos: veja o padrao complet
 | `BRAND_COLOR` | str | `#1E2A78` |  |
 | `ACCENT_COLOR` | str | `#FF3D57` |  |
 | `GAMES_DAY` | str | `thu` | oferta no feed só nesses dias (feed = vitrine da loja) |
+| `EDU_ENABLED` | bool | `False` | carrossel educativo da loja (liga/desliga so ele; CONTENT_ENABLED liga a agenda toda) |
+| `GAMES_ENABLED` | bool | `False` | jogos gratis da semana e jogos em promocao |
 | `EDU_DAY` | str | `tue` | carrossel educativo da loja (app/content.py) |
 | `EDU_TIME` | str | `19:00` | carrossel educativo da loja (app/content.py) |
 | `GAMES_TIME` | str | `13:00` | Epic libera grátis qui 12h |

@@ -47,7 +47,7 @@ O servidor pequeno **não fabrica vídeo**. Um **PC potente** (o "estúdio") ger
 - Um timer do systemd (`promobot-fila-reels.timer`) confere a fila a cada 5 min. Itens que passam da validade (`valido_ate`, padrão `quando + 36 h`) vão para `expirados/`.
 - Vídeos com `"simular": true` não publicam, só marcam como feitos (teste do fluxo).
 
-## O estúdio de vídeo (NÃO incluído neste V0)
+## O estúdio de vídeo (NÃO incluído no kit)
 No autor, o estúdio é um PC com GPU que:
 - monta o Reel a partir de fotos/vídeos reais (texto grande branco/laranja, música em rodízio, capa 1080×1920);
 - usa Whisper (transcrição) para achar as falas boas e cortar;

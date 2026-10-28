@@ -48,6 +48,6 @@ O `ctl` altera os principais em tempo real (`desconto 30`, `limite 80`, `interva
 
 ## Cuidados
 - **Nunca** versione o `.env` (o `.gitignore` já bloqueia). `chmod 600 .env`.
-- Não cole chaves no chat. Use `ferramentas/gravar_meta.sh` e `ferramentas/gravar_awin.sh` (leem sem mostrar na tela).
+- Não cole chaves no chat. Use `ferramentas/meta_conectar.py`, `ferramentas/threads_conectar.py` e `ferramentas/gravar_awin.sh` (leem sem mostrar na tela).
 - Valores com vírgula (listas) vão **sem aspas** e sem espaço depois da vírgula.
 - Depois de qualquer mudança grande, rode `ctl diag` e acompanhe `ctl alertas`.

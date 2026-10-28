@@ -23,7 +23,7 @@ O servidor guarda **chaves de afiliado, tokens de redes sociais e a sessão do s
 ## Segredos
 - Ficam **somente** no `/opt/promobot/.env` (`chmod 600`) e em `data/youtube/` (`chmod 600`).
 - **Nunca** no Git, no chat, em captura de tela, em e-mail. O `.gitignore` do kit bloqueia `.env`, `data/`, tokens e chaves.
-- Para gravar uma chave sem aparecer na tela: `ferramentas/gravar_meta.sh`, `ferramentas/gravar_awin.sh` (leem com `read -s`).
+- Para gravar uma chave sem aparecer na tela: `ferramentas/meta_conectar.py`, `ferramentas/threads_conectar.py`, `ferramentas/gravar_awin.sh` (leem sem mostrar na tela).
 - Se um segredo **vazou** (colado em chat, commitado, foto de tela): **revogue e gere outro** na hora. Apagar a mensagem não basta.
 - Depois de entregar o servidor ou o repositório a alguém, troque todas as chaves.
 

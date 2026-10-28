@@ -2,7 +2,7 @@
 
 O que está **pronto**, o que está **pela metade** e o que é **ideia**. Use como lista de pedidos para o Claude (`prompts/`).
 
-## Pronto (V0)
+## Pronto (até a v0.3)
 - Coleta ML/Shopee/AliExpress/Pelando/Promobit e cupons com código
 - Regras (desconto, repetição, histórico de preço, mix de lojas, marca confiável)
 - Link de afiliado (ML via navegador, Shopee/Ali via API, Awin/KaBuM)

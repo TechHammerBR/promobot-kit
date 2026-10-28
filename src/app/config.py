@@ -217,6 +217,8 @@ class Settings(BaseSettings):
     social_feed_time: str = "19:30"
     social_feed_days: str = "mon,wed,fri"  # oferta no feed só nesses dias (feed = vitrine da loja)
     games_day: str = "thu"
+    edu_enabled: bool = False  # carrossel educativo da loja (liga/desliga so ele; CONTENT_ENABLED liga a agenda toda)
+    games_enabled: bool = False  # jogos gratis da semana e jogos em promocao
     edu_day: str = "tue"  # carrossel educativo da loja (app/content.py)
     edu_time: str = "19:00"
     games_time: str = "13:00"  # Epic libera grátis qui 12h

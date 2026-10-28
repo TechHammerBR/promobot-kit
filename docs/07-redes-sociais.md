@@ -8,11 +8,12 @@ Para qualquer **tipo novo de post** (Stories, feed, Reel, carrossel) gere primei
 ## Meta: Instagram + Página do Facebook (`app/social.py`)
 **Pré-requisitos:** Instagram **profissional** (comercial/criador) vinculado a uma **Página do Facebook**. Perfil pessoal do Facebook **não** tem API.
 
-1. Crie um app em developers.facebook.com (tipo **Empresa**) com os produtos **Instagram** e **Páginas**.
-2. Permissões necessárias: `pages_manage_posts`, `instagram_basic`, `instagram_content_publish` (e leitura de páginas/insights se quiser relatórios).
-3. Gere um **token de usuário de longa duração** (~60 dias) e troque por um **token de Página** (este **não expira**).
-4. No `.env` (use `ferramentas/gravar_meta.sh`, que lê sem mostrar na tela):
-   - `META_PAGE_ID`, `META_IG_ID`, `META_PAGE_TOKEN`, `SOCIAL_ENABLED=true`
+**O passo a passo completo (com todos os cliques) está em `03-instalacao-passo-a-passo.md`, passo 12.** Resumo:
+
+1. Crie um app em developers.facebook.com (tipo **Empresa**, modo de desenvolvimento: não precisa de revisão para as suas contas).
+2. Permissões: `pages_show_list`, `pages_read_engagement`, `pages_manage_posts`, `instagram_basic`, `instagram_content_publish` (+ `business_management` se a Página estiver num portfólio empresarial).
+3. Gere o token no Explorador da Graph API e rode `ferramentas/meta_conectar.py`: ele troca por token de longa duração, pega o token da **Página** (**não expira**), descobre `META_PAGE_ID` e `META_IG_ID` e grava no `.env` sem mostrar nada na tela.
+4. Confira com `ferramentas/social_verificar.py` e veja as artes com `ferramentas/social_previa.py` (nada é publicado). Só então `CONTENT_ENABLED=true` e `SOCIAL_ENABLED=true`.
 5. O guardião checa a validade do token e alerta (`meta_token`).
 6. **Não** coloque tokens no chat nem no Git. Se vazar, revogue e gere outro.
 
@@ -24,13 +25,13 @@ Para qualquer **tipo novo de post** (Stories, feed, Reel, carrossel) gere primei
 - Bio, foto de perfil e post fixado **não** são editáveis por API: ajuste à mão.
 
 ## Threads (`app/threads.py`)
-App separado do Threads (id/segredo próprios). `THREADS_TOKEN` dura ~60 dias e é **renovado sozinho todo domingo às 4h** (`catchup`, job `threads_token`). Posta a mesma oferta dos Stories, com link clicável.
+App separado do Threads (id/segredo próprios); conecte com `ferramentas/threads_conectar.py` (passo 12.2 do `03`). `THREADS_TOKEN` dura ~60 dias e é **renovado sozinho todo domingo às 4h** (`catchup`, job `threads_token`). Posta a mesma oferta dos Stories, com link clicável.
 
 ## YouTube (`app/youtube.py`)
 Para **Shorts automáticos** (cada Reel da fila vira Short) e vídeos longos enviados do PC.
 1. No Google Cloud, crie um projeto, ative a **YouTube Data API v3** e crie credencial OAuth do tipo **app para computador**. Publique o app (modo "produção") para o token não expirar em 7 dias.
 2. Escopos: `youtube.upload` + `youtube.readonly` (**não permitem apagar nem editar vídeos pela API**).
-3. Autorize uma vez (fluxo de loopback `127.0.0.1`) e guarde `youtube_client.json` e `youtube_token.json` em `data/youtube/` com `chmod 600`. (O script de autorização roda no PC; peça ao Claude: `prompts/04-redes-sociais.md`.)
+3. Autorize uma vez com `ferramentas/youtube_conectar.py` (fluxo de loopback `127.0.0.1:8765`, com túnel SSH — passo 12.3 do `03`): ele grava `youtube_token.json` em `data/youtube/` (`chmod 600`); o `youtube_client.json` você baixa do Google Cloud e salva na mesma pasta.
 4. **Shorts agendados na plataforma:** até 48 h antes do horário do Reel, o robô sobe o Short como **privado + `publishAt`**; o YouTube publica na hora marcada. Na hora do Reel o robô não sobe de novo. Limite: cota diária da API (~6 envios; cada upload custa 1600 de 10.000 unidades).
 5. **Limitação:** como a API não edita/apaga, se você refizer um Reel **depois** de o Short estar agendado, apague o Short antigo no YouTube Studio.
 6. Título do Short = 1ª linha da legenda + `#Shorts`; descrição = legenda com os links dos grupos.

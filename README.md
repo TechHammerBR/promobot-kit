@@ -1,13 +1,13 @@
-# PromoBot Kit (V0)
+# PromoBot Kit (v0.3 — beta de testes)
 
 Robô que **monitora, filtra, enriquece e publica ofertas e cupons** de e-commerce em grupos de WhatsApp (e, opcionalmente, Telegram, Instagram, Facebook, Threads e YouTube), com **link de afiliado do próprio dono**. Roda 24/7 num computador pequeno e barato (testado num Dell Wyse 3040: Atom, 2 GB de RAM) e foi construído com a ajuda do **Claude Code**.
 
 > ## ⚠️ Você precisa de um **servidor**
 > O robô tem que ficar **ligado 24 h por dia**: não roda no seu PC/notebook do dia a dia nem no celular. O **mínimo** é a configuração do servidor onde ele roda hoje, um **Dell Wyse 3040**: processador de **4 núcleos a 1,44 GHz** (turbo até 1,92 GHz; Intel Atom x5-Z8350), **2 GB de RAM**, **24 GB de armazenamento no total**, rede cabeada e Debian 13. Detalhes, medições reais e alternativas em [`docs/01a-servidor-e-requisitos.md`](docs/01a-servidor-e-requisitos.md).
 
-> **Status: V0 em fase de testes** (distribuição gratuita para um grupo pequeno; ainda não está à venda). Veja `docs/17-distribuicao-e-testes.md`.
+> **Status: v0.3, beta de testes** (distribuição gratuita para um grupo pequeno; ainda não está à venda). Veja `docs/17-distribuicao-e-testes.md`.
 >
-> **V0 (primeira versão para compartilhar).** O código é o mesmo que roda em produção, mas foi limpo dos dados pessoais do autor. A documentação foi escrita a partir do servidor real. **A instalação foi testada do zero numa VM com o mínimo do Wyse** (28/10/2026; veja `docs/18-teste-de-instalacao.md`). Ainda **não** foi testado o pareamento do WhatsApp (precisa de número real) nem o login do Mercado Livre. Leia `docs/00-LEIA-PRIMEIRO.md` antes de começar.
+> **Versão atual: v0.3** (histórico em `CHANGELOG.md`). O código é o mesmo que roda em produção, mas foi limpo dos dados pessoais do autor. A documentação foi escrita a partir do servidor real. **A instalação foi testada do zero numa VM com o mínimo do Wyse** (28/10/2026; veja `docs/18-teste-de-instalacao.md`). Ainda **não** foi testado o pareamento do WhatsApp (precisa de número real) nem o login do Mercado Livre. Leia `docs/00-LEIA-PRIMEIRO.md` antes de começar.
 
 ## O que ele faz
 
@@ -29,6 +29,7 @@ Robô que **monitora, filtra, enriquece e publica ofertas e cupons** de e-commer
 
 ```text
 README.md                 este arquivo
+CHANGELOG.md              o que mudou em cada versão (VERSION = versão atual)
 CLAUDE.md                 instruções para o Claude Code que for trabalhar neste projeto
 .env.example              todas as configurações (gerado do código)
 docs/                     guias passo a passo (comece pelo 00)

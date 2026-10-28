@@ -45,7 +45,14 @@ Veja se há códigos ativos: `ctl cupons-ativos` (leitura). Se vazio, a fonte (P
 - O vídeo **privado agendado** aparece no YouTube Studio com data de publicação. Para corrigir um Short já agendado, apague no Studio (a API não apaga).
 
 ## Meta (Instagram/Facebook): erro de token
-- `meta_token` nos alertas: o token venceu/foi revogado → gere outro (`07`).
+- Primeiro passo para qualquer rede social: `venv/bin/python ferramentas/social_verificar.py` (só leitura; mostra qual rede falhou e por quê).
+- `meta_conectar.py` diz **"nenhuma Pagina veio no token"**: ao gerar o token, na janela da Meta você precisa **marcar a Página e o Instagram**; gere de novo.
+- `meta_conectar.py` diz **"Pagina nao tem Instagram profissional vinculado"**: converta o Instagram para conta profissional e vincule à Página (Página → Configurações → Contas vinculadas).
+- **"a Meta recusou o token"**: o token do Explorador vale ~1 hora; gere outro e rode de novo.
+- `social_verificar.py` mostra **Permissões: FALTAM ...**: gere o token de novo adicionando essas permissões e rode `meta_conectar.py` outra vez.
+- `threads_conectar.py`: **token recusado** = o token do gerador vale ~1 h; confira também se a sua conta está como *Testador do Threads* e se você aceitou o convite no app do Threads.
+- `youtube_conectar.py`: a página do Google dá **"não foi possível conectar"** = faltou o túnel `ssh -L 8765:127.0.0.1:8765` aberto no seu computador. **"não devolveu o refresh token"** = remova o acesso do app em `myaccount.google.com/permissions` e rode de novo. YouTube que para de funcionar depois de 7 dias = a tela de consentimento está em *teste*: publique o app.
+- `meta_token` nos alertas: o token venceu/foi revogado → gere outro e rode `meta_conectar.py` (`07`).
 - Vídeo recusado no Instagram: precisa de **upload direto**; confira tamanho/formato (MP4 H.264/AAC, 9:16).
 
 ## Alertas "gatry: 0 ofertas extraídas"

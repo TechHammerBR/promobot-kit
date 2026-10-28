@@ -35,11 +35,11 @@ def schedule() -> list[tuple]:
     vendas = settings.feed_vendas_enabled
     itens += [
         *([("feed", settings.social_feed_time, settings.social_feed_days, 3, social.post_feed)] if vendas else []),
-        ("edu", settings.edu_time, settings.edu_day, 4, post_edu),
+        *([("edu", settings.edu_time, settings.edu_day, 4, post_edu)] if settings.edu_enabled else []),
         *([("reel_gratis", "12:30", "thu", 5, post_free_reel), ("reel_promo", "19:20", settings.games2_day, 4, post_promo_reel)]
           if settings.reels_enabled else []),
-        ("jogos1", settings.games_time, settings.games_day, 5, post_gratis),  # qui 13h: JOGOS GRÁTIS DA SEMANA
-        ("jogos2", settings.games2_time, settings.games2_day, 4, post_weekly),
+        *([("jogos1", settings.games_time, settings.games_day, 5, post_gratis),  # qui 13h: JOGOS GRÁTIS DA SEMANA
+           ("jogos2", settings.games2_time, settings.games2_day, 4, post_weekly)] if settings.games_enabled else []),
         *([("radar", "12:00", "fri", 5, post_radar), ("top5", "11:00", "sat", 5, post_top5)] if vendas else []),
         *([("reel_ofertas", settings.reel_ofertas_hora, "*", 3, __import__("app.reels", fromlist=["x"]).offers_reel)]
           if settings.reel_ofertas_enabled else []),

@@ -26,7 +26,7 @@ Abra um **Issue** no repositório (aba *Issues* → *New issue* → modelo "Rela
 - Repositório **privado**; convide cada pessoa em *Settings → Collaborators* (permissão de leitura basta; escrita só para quem for ajudar a corrigir).
 - Entregue junto: link do repo, o aviso de risco (`12`) e o que se espera do teste.
 - **Nunca** guarde senhas, chaves ou acesso ao servidor de ninguém.
-- Registre as versões: `git tag v0.1` ao distribuir; a cada correção importante, `v0.2`…
+- Registre as versões: `git tag v0.3` ao distribuir; a cada correção importante, a próxima (`v0.4`…) e uma linha no `CHANGELOG.md`
 - Antes de cada atualização: `python -I sanitiza.py` e `gera_referencias.py` (verificação de dados pessoais) e só então `git push`.
 
 ## Roteiro do teste (checklist para quem testa)

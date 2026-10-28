@@ -10,20 +10,23 @@ REGRAS
 - SOCIAL_ENABLED=false até eu aprovar as prévias.
 - Tokens: nunca no chat nem no Git; grave com script que leia sem eco. Anote a validade de cada um (docs/07, tabela).
 
+FERRAMENTAS PRONTAS (já existem em ferramentas/; NÃO reescreva, use): meta_conectar.py, threads_conectar.py, youtube_conectar.py, social_verificar.py, social_previa.py.
+Guia completo com todos os cliques: docs/03, passo 12. Eu faço os cliques nos sites; você me guia e roda os scripts.
+
 META (Instagram + Facebook)
 1. Verifique: Instagram é PROFISSIONAL e está vinculado a uma Página do Facebook? (se não, guie a conversão)
-2. Guie a criação do app (tipo Empresa; produtos Instagram e Páginas) e as permissões pages_manage_posts, instagram_basic, instagram_content_publish.
-3. Obtenha token de usuário de longa duração e troque por token de PÁGINA; grave META_PAGE_ID, META_IG_ID, META_PAGE_TOKEN.
-4. Gere 1 Story e 1 post de feed de PRÉVIA (arquivos locais, sem publicar). Mostre. Só publique após eu dizer "pode".
+2. Guie a criação do app (tipo Empresa, modo de desenvolvimento) e a geração do token no Explorador da Graph API com as permissões pages_show_list, pages_read_engagement, pages_manage_posts, instagram_basic, instagram_content_publish (+ business_management se a Página estiver em portfólio empresarial).
+3. Eu rodo ferramentas/meta_conectar.py (token longo, token da PÁGINA, META_PAGE_ID e META_IG_ID gravados sem eco). Rode ferramentas/social_verificar.py e me explique cada linha.
+4. Rode ferramentas/social_previa.py (Story e feed de PRÉVIA, sem publicar). Mostre. Só ligue CONTENT_ENABLED e SOCIAL_ENABLED após eu dizer "pode".
 5. Confira os limites da API: sem link clicável em Stories; link no 1º comentário do feed; vídeo exige upload direto.
 
 YOUTUBE
-1. Projeto no Google Cloud, YouTube Data API v3, credencial OAuth "app para computador", app em PRODUÇÃO.
-2. Escreva o script de autorização (loopback 127.0.0.1) que gera youtube_token.json; guarde em data/youtube/ com chmod 600.
+1. Projeto no Google Cloud, YouTube Data API v3, tela de consentimento PUBLICADA (senão expira em 7 dias), credencial OAuth "app para computador" salva em data/youtube/youtube_client.json.
+2. Eu abro o túnel (ssh -L 8765:127.0.0.1:8765) e rodo ferramentas/youtube_conectar.py; ele grava data/youtube/youtube_token.json (chmod 600).
 3. Teste com um vídeo PRIVADO. Ligue os Shorts automáticos da fila (app/youtube.py) só depois.
-4. Explique a limitação: a API não edita nem apaga vídeos; cota diária pequena.
+4. Explique a limitação: a API não edita nem apaga vídeos; cota diária pequena; projeto sem auditoria pode ficar só com envios privados.
 
-THREADS: app separado; THREADS_TOKEN com renovação semanal (já existe job).
+THREADS: app separado; conecte com ferramentas/threads_conectar.py (THREADS_TOKEN com renovação semanal, já existe job). Ligue THREADS_ENABLED só depois do social_verificar.py sem FALHOU.
 
 TIKTOK (não implementado)
 1. Explique em 5 linhas as opções (docs/07): rascunho (video.upload), ferramenta de agendamento aprovada, ou manual no TikTok Studio. Recomende uma e espere minha escolha.
