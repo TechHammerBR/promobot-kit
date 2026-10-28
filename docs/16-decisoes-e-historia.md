@@ -30,7 +30,7 @@ Registro do **porquê** de cada escolha (útil para o Claude e para você não r
 | 27/10 | Queda de energia → o ML pediu reCAPTCHA; não burlado, liberou sozinho | regra "nunca burlar" |
 | 28/10 | **Foto:** regra "sem produto em destaque" (textura de madeira passou); **chamada v2** (selo -N% no título, sem repetir %, linha da loja); **cupom relevante** (VALETECH para tech, sem "Meli+"/"carro"); **Shorts agendados** na plataforma | qualidade |
 | 28/10 | **Sem dicas/conteúdo educativo nos grupos de WhatsApp**: só melhorar a chamada | decisão do dono |
-| 28/10 | **Este kit (v0.1 → v0.3 no mesmo dia)**, distribuído para testes (sem venda por enquanto) | testar com um grupo pequeno antes de qualquer venda |
+| 28/10 | **Este kit (v0.1 → v0.4 no mesmo dia)**, distribuído para testes (sem venda por enquanto) | testar com um grupo pequeno antes de qualquer venda |
 | 28/10 | **Teste de instalação em VM** (mínimo do Wyse): achou 9 problemas do kit (padrões herdados do Docker, scripts com caminhos do autor, permissão +x, API do WhatsApp em todas as interfaces, `diag` com falso alarme, 2 testes-bomba-relógio…), todos corrigidos | ver `18-teste-de-instalacao.md` |
 
 ## Lições técnicas (para não repetir)

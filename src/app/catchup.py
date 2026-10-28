@@ -44,6 +44,7 @@ def schedule() -> list[tuple]:
         *([("reel_ofertas", settings.reel_ofertas_hora, "*", 3, __import__("app.reels", fromlist=["x"]).offers_reel)]
           if settings.reel_ofertas_enabled else []),
         *([("novidade", settings.estudio_hora, settings.estudio_dias, 5, post_novidade)] if settings.estudio_enabled else []),
+        ("revisao_ig", "20:00", "sun", 6, __import__("app.revisao_ig", fromlist=["x"]).agendada),  # revisao semanal do Instagram (so leitura)
         ("threads_token", "04:00", "sun", 20, threads.refresh),
     ]
     return itens

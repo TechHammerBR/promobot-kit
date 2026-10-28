@@ -39,6 +39,7 @@ Resumo de uma linha de cada arquivo, tirado do cabecalho dele.
 | `reels.py` | Reels automáticos (06/10) — o formato que mais traz seguidores novos. Instagram (Reels) + Página (vídeo) + Threads. |
 | `reels2.py` | Reels no estilo do @quantoquevaicustar (referência do dono, 08/10/2026): narração CONTÍNUA com a voz do dono, legendas palavra a palavra, |
 | `report.py` | Relatório diário (13/10/2026): posts por loja e por fonte, quantos com comissão, vendas/comissões da Shopee e da Awin. |
+| `revisao_ig.py` | Revisão semanal do Instagram (28/10/2026): lê os posts do @ pela Graph API (SÓ LEITURA) e diz o que funcionou e o que repetir ou parar. |
 | `schemas.py` | (sem descricao) |
 | `semanal.py` | Carrosséis semanais com DADOS PRÓPRIOS do robô (14/10/2026, pedido do dono; sem IA, cabem no Wyse): |
 | `slideshow.py` | Slides (imagens) -> REEL em vídeo com música de fundo (15/10/2026, ideia do dono: "reel propaga mais que foto"). |

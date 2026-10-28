@@ -2,6 +2,9 @@
 
 Formato: `v0.N` = versão para testadores (beta fechado). Cada versão tem uma *tag* no Git (`git tag`). Para ver o que mudou entre duas: `git log v0.2..v0.3 --oneline`.
 
+## v0.4 — 28/10/2026 — Revisão semanal do Instagram
+- **Novo:** `ctl revisao-ig [dias]` e relatório automático todo domingo 20h em `data/revisao_instagram/ultima.md` (só leitura, sem IA, sem notificação): destaques, piores, notas por formato/tema/gancho/dia/horário e recomendações. Veja `docs/09`.
+
 ## v0.3 — 28/10/2026 — Redes sociais no passo a passo
 - **Novo passo 12 no guia de instalação** (`docs/03`): como conectar Instagram + Página do Facebook, Threads e YouTube, com todos os cliques, permissões e armadilhas; TikTok explicado como "não implementado".
 - **Ferramentas novas** em `src/ferramentas/`: `meta_conectar.py`, `threads_conectar.py`, `youtube_conectar.py` (conectam sem mostrar token na tela), `social_verificar.py` (confere tudo só com leitura; `--escrita` faz um teste seguro), `social_previa.py` (gera o Story e o feed de exemplo sem publicar).

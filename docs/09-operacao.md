@@ -74,3 +74,11 @@ Veja a tabela de validade de acessos em `07-redes-sociais.md`.
 - [ ] backup mais recente existe e abre (`tar tzf`)
 - [ ] links de afiliado estão gerando comissão no painel da loja
 - [ ] grupo: alguém reclamou de foto estranha, preço errado ou repetição? Ajuste a regra e registre.
+- [ ] (se usar Instagram) leia a **revisão semanal** (próxima seção) e aplique 1 ajuste na semana.
+
+## Revisão semanal do Instagram (só leitura)
+Com o Instagram conectado (`03`, passo 12), o robô lê os seus posts pela API oficial e escreve um relatório em `data/revisao_instagram/ultima.md` **todo domingo às 20h** (precisa de `CONTENT_ENABLED=true`). Para gerar na hora: `PYTHONPATH=/opt/promobot venv/bin/python -m app.ctl revisao-ig 60` (últimos 60 dias).
+- Mostra: seguidores e variação; os 5 posts que mais se destacaram e os 5 que menos funcionaram (comparados com o normal do **mesmo formato**); nota média por formato, tema, tipo de gancho (1ª linha), dia da semana e horário; e 3 a 5 recomendações para a semana.
+- A **nota** é curtidas + 3 × comentários (comentário vale mais). Alcance e visualizações exigem a permissão `instagram_manage_insights` no token (opcional; sem ela o relatório usa só curtidas e comentários).
+- Com poucos posts por grupo os números são **pistas, não leis** (o relatório marca "amostra pequena"). Não usa IA, não posta e não manda notificação.
+- Como usar: leia o relatório, escolha **uma** coisa para repetir e **uma** para parar, e anote no seu caderno de decisões (`16`). Para pedir ao Claude que interprete: cole o `ultima.md` e use as skills/prompts de diagnóstico de perfil.

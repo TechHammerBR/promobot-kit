@@ -171,6 +171,7 @@ COMANDOS = {
     "codigo-wa": codigo_wa, "alertas": alertas, "relatorio": relatorio,
     "tabela": _lazy("app.prices", "preview", join=False), "preco": _lazy("app.prices", "set_price"),
     "edu": _lazy("app.content", "draft_edu"),
+    "revisao-ig": lambda dias="60": __import__("app.revisao_ig", fromlist=["x"]).gerar(int(dias)),
     "servico": lambda *a: _lazy("app.content", "preview_service")(*(a or ("manutenção completa",))),
     "aprovar": _lazy("app.content", "approve_service", join=False),
     "cancelar": _lazy("app.content", "cancel_service", join=False),
