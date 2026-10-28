@@ -53,7 +53,7 @@ PYTHONPATH=/opt/promobot venv/bin/python -m app.ctl status
 **Teste a restauração** numa máquina de teste (ou na VM) antes de precisar dela.
 
 ## Imagem do sistema
-O autor também faz uma imagem semanal do disco interno (`ferramentas/imagem_wyse.sh`) e um espelho diário (`espelho.sh`). Opcional, mas salva horas se o disco morrer.
+O autor também faz uma imagem semanal do disco interno e um espelho diário em outro pendrive (scripts em `ferramentas/do-autor/`, feitos para os discos dele; use como exemplo). Opcional, mas salva horas se o disco morrer.
 
 ## Atualizações do sistema
 - `unattended-upgrades` cuida das correções de segurança.

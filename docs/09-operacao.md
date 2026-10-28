@@ -59,7 +59,7 @@ Mudança que vale para a loja toda (regra, horário, formato) → registre em `d
 - **Teste a restauração** pelo menos uma vez (um backup nunca testado não é backup).
 
 ## Manutenção automática
-`ferramentas/manutencao.sh` (04:20): para o robô, enxuga o banco (ofertas recusadas/expiradas antigas), compacta, limpa temporários e logs velhos, confere disco/memória/serviços e religa. Resultado em `data/saude.log`. Vigias (`vigia_recursos.sh`, `vigia_armazenamento.sh`) rodam a cada 5 min e escrevem em `alertas.log`.
+`ferramentas/manutencao.sh` (04:20): para o robô, enxuga o banco (ofertas recusadas/expiradas antigas), compacta, limpa temporários e logs velhos, confere disco/memória/serviços e religa. Resultado em `data/saude.log`. O vigia `vigia_recursos.sh` roda a cada 5 min e escreve em `alertas.log` quando a memória ou o disco ficam baixos.
 
 ## Queda de energia
 - Com o BIOS em "ligar após queda", o servidor volta sozinho; os serviços sobem; o `catchup` recupera os posts de hoje.

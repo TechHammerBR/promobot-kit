@@ -95,14 +95,18 @@ Siga `06-grupos-whatsapp-telegram.md` (pareamento por código de 8 caracteres ou
 - Mercado Livre: login único no navegador do `linkgen` por túnel SSH (`05-afiliados.md`).
 
 ## 10. Rotinas automáticas (cron)
-Como `root` ou com `sudo crontab -e`, ajuste os caminhos e agende (exemplos reais do autor):
+Garanta que os scripts são executáveis (o Git do kit já guarda isso; se o seu sistema perder, rode `chmod +x /opt/promobot/backup.sh /opt/promobot/ferramentas/*.sh`).
+
+Como `root` ou com `sudo crontab -e`:
 ```cron
-40 3 * * *   /opt/promobot/backup.sh                         # backup diário do banco/.env/sessão
-*/5 * * * *  /opt/promobot/ferramentas/vigia_recursos.sh           # memória/CPU
-*/5 * * * *  /opt/promobot/ferramentas/vigia_armazenamento.sh      # disco
-20 4 * * *   /opt/promobot/ferramentas/manutencao.sh               # enxuga banco e logs (para/religa o robô)
+40 3 * * *   /opt/promobot/backup.sh                              # backup diário do banco/.env/sessão
+*/5 * * * *  /opt/promobot/ferramentas/vigia_recursos.sh        # memória e disco (só anota em data/alertas.log)
+20 4 * * *   /opt/promobot/ferramentas/manutencao.sh            # enxuga banco e logs (para e religa o robô)
 ```
-Adapte `backup.sh` ao seu destino de backup (`DEST=`). Os scripts leem o usuário em `DONO=` (padrão `promobot`).
+- `backup.sh` guarda em `/srv/backup` **se esse disco estiver montado**; senão em `/opt/promobot/backup-local` (só os 3 últimos). Edite `DEST=` para outro lugar.
+- Os scripts leem o usuário em `DONO=` (padrão `promobot`).
+- ⚠️ **Não** coloque no cron os scripts de `ferramentas/do-autor/`: eles dependem dos discos USB do servidor do autor (um deles **para os serviços** se não achar esses discos). Veja `ferramentas/do-autor/LEIA-ME.md`.
+- Os recursos de **conteúdo** (fila de Reels, estúdio, músicas) usam `/srv/cache` por padrão. Se for usá-los: `sudo mkdir -p /srv/cache && sudo chown promobot: /srv/cache` (ou mude `FILA_REELS_DIR`).
 
 ## 11. Ligar de verdade (depois de 1 dia em simulação)
 1. Preencha `WHATSAPP_GROUP_NAME` (nome exato do grupo) e `WHATSAPP_NUMBER`.
