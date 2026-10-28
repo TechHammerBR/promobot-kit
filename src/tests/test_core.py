@@ -142,7 +142,7 @@ def test_legenda_social_sem_preco_antigo():
 
 def test_catchup_recupera_so_uma_vez_e_dentro_da_tolerancia(tmp_path, monkeypatch):
     """Post agendado perdido (servidor desligado) é recuperado sozinho: 1x, só dentro da tolerância e no dia certo."""
-    from datetime import datetime
+    from datetime import datetime, timedelta
     from app import catchup
     monkeypatch.setattr(catchup, "STATE", tmp_path / "estado.json")
     rodou = []
@@ -150,7 +150,9 @@ def test_catchup_recupera_so_uma_vez_e_dentro_da_tolerancia(tmp_path, monkeypatc
         ("story", "14:00", "*", 3, lambda: rodou.append("story14")),
         ("feed", "19:30", "mon,wed,fri", 3, lambda: rodou.append("feed")),
         ("reel", "12:30", "thu", 5, lambda: rodou.append("reel"))])
-    quarta = lambda h, m: datetime(2026, 10, 7, h, m, tzinfo=catchup.TZ)  # 07/10/2026 = quarta
+    hoje = datetime.now(catchup.TZ)
+    ultima_quarta = hoje - timedelta(days=(hoje.weekday() - 2) % 7)  # quarta mais recente (data fixa quebra: o estado e podado apos 10 dias)
+    quarta = lambda h, m: ultima_quarta.replace(hour=h, minute=m, second=0, microsecond=0)
     assert catchup.recover(quarta(14, 2)) == []                     # recém passou: o agendador normal cuida
     assert catchup.recover(quarta(14, 48)) == ["story@14:00"]        # perdeu: recupera
     assert catchup.recover(quarta(15, 10)) == []                    # já rodou: não repete

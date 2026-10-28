@@ -219,6 +219,6 @@ http.createServer(async (req, res) => {
   } catch (e) {
     return json(res, 500, { error: String(e?.message || e) })
   }
-}).listen(3000, () => console.log('wa: API na porta 3000'))
+}).listen(3000, '127.0.0.1', () => console.log('wa: API em 127.0.0.1:3000 (so local)'))
 
 start()

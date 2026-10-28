@@ -62,12 +62,13 @@ def diagnose(hours: int = 6) -> str:
     w = _get(f"{settings.wa_url}/status")
     if w is None or not w.json().get("connected"):
         issues.append("WhatsApp desconectado (`ctl codigo-wa` gera o código para reconectar)")
-    lg = _get("http://linkgen:8000/health")
-    if lg is None:
-        issues.append("gerador de links fora do ar (o guardião religa sozinho em até 10 min)")
-    elif settings.ali_enabled and not settings.ali_app_key and lg.json().get("ali_logged_in") is False:
-        issues.append("login do AliExpress caiu (entre pelo atalho Navegador do Servidor)")
-    if _get(f"{settings.ollama_url}/api/tags") is None:
+    if settings.linkgen_enabled:  # só cobra o navegador de afiliado quando ele está LIGADO (perfil leve sem ML por navegador não tem linkgen)
+        lg = _get(f"{settings.linkgen_url}/health")
+        if lg is None:
+            issues.append("gerador de links fora do ar (o guardião religa sozinho em até 10 min)")
+        elif settings.ali_enabled and not settings.ali_app_key and lg.json().get("ali_logged_in") is False:
+            issues.append("login do AliExpress caiu (entre pelo atalho Navegador do Servidor)")
+    if settings.ai_enabled and _get(f"{settings.ollama_url}/api/tags") is None:
         issues.append("IA local fora do ar (fotos não são validadas)")
     # conclusão
     lines.append("")

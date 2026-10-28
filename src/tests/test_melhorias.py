@@ -103,7 +103,7 @@ def test_canal_de_casa(monkeypatch):
     assert canal_de("Aspirador de Pó Vertical Electrolux") == "lar"
     assert canal_de("SSD Kingston NV3 1TB NVMe") == "tech"
     assert canal_de("Mouse Gamer Logitech G203") == "tech"
-    assert canal_de("Tênis Nike Revolution 7") == "tech"  # nem casa nem tecnologia: segue a regra antiga (recusado)
+    assert canal_de("Tênis Nike Revolution 7") == "lar"  # dia a dia (roupa/calçado) vai para o grupo de casa (lar_basicos)
     assert not is_lar("Mesa digitalizadora Wacom")  # "mesa" sozinha não é móvel; precisa "mesa de jantar"
     monkeypatch.setattr(settings, "lar_enabled", False)
     assert canal_de("Air Fryer Mondial 4L Family Inox") == "tech"
