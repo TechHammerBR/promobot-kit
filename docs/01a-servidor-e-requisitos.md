@@ -4,18 +4,20 @@
 O PromoBot **precisa de um computador que fique ligado 24 horas por dia, 7 dias por semana**, com internet estável. **Não** é um programa para instalar no seu PC ou notebook do dia a dia, e não roda no celular. O robô só vale a pena se postar o dia todo, inclusive de madrugada, quando você dorme ou desliga o PC.
 
 ## O mínimo = a configuração do Wyse (referência testada em produção)
-O mínimo deste kit é **exatamente o servidor onde ele roda hoje**: um **Dell Wyse 3040** (thin client usado, barato).
+O mínimo deste kit é **exatamente o servidor onde ele roda hoje**: um **Dell Wyse 3040** (thin client usado, barato). Todos os números abaixo são **totais**.
 
-| Item | Mínimo (= Wyse 3040) | Observações |
-|---|---|---|
-| **Processador** | x86-64, **4 núcleos**, ~1,4 GHz (Intel Atom x5-Z8350) | qualquer CPU x86-64 igual ou melhor serve |
-| **Memória RAM** | **2 GB** (1,9 GB utilizáveis) | funciona **com swap**: no Wyse há 1,9 GB de zram + 4 GB de swap em disco |
-| **Armazenamento interno** | **8 GB** (eMMC/SSD) | o sistema + robô usam ~3,1 GB; sobra folga |
-| **Armazenamento extra (USB)** | **1 pendrive de 16 GB** (backup) | no Wyse há também SSD/pendrives para cache e cópia (opcional) |
-| **Rede** | **cabo Ethernet** | Wi-Fi funciona, mas cai mais |
-| **Sistema** | **Debian 13** ("trixie") sem interface gráfica; Ubuntu 24.04+ também serve | |
-| **GPU** | **não precisa** | nenhuma IA roda no servidor |
-| **Energia** | consumo muito baixo (meça com um medidor de tomada) | recomendável **nobreak** pequeno |
+| Item | Mínimo (= Wyse 3040) |
+|---|---|
+| **Processador** | **4 núcleos a 1,44 GHz** (turbo até 1,92 GHz), x86-64 — Intel Atom x5-Z8350. Qualquer x86-64 igual ou melhor serve. |
+| **Memória RAM** | **2 GB** (1,9 GB utilizáveis) |
+| **Armazenamento total** | **24 GB** (sistema, robô, dados, backup de 14 dias e swap) |
+| **Swap** | pelo menos 2 GB (o Wyse tem ~6 GB de swap entre zram e disco) — conta dentro do armazenamento total |
+| **Rede** | cabo Ethernet (Wi-Fi funciona, mas cai mais) |
+| **Sistema** | Debian 13 ("trixie") sem interface gráfica; Ubuntu 24.04+ também serve |
+| **GPU** | não precisa (nenhuma IA roda no servidor) |
+| **Energia** | consumo muito baixo (meça com um medidor de tomada); recomendável **nobreak** pequeno |
+
+> O Wyse de produção do autor tem bem mais armazenamento (cerca de 600 GB somando todos os discos USB), usado para a fila de vídeos e cópias de segurança extras. **Isso não é necessário** para o robô de grupos: 24 GB no total bastam.
 
 ### Uso real medido no Wyse (28/10/2026, robô completo com Mercado Livre)
 | Recurso | Uso |
@@ -32,11 +34,11 @@ O mínimo deste kit é **exatamente o servidor onde ele roda hoje**: um **Dell W
 ## Recomendado (mais folga, quase o mesmo preço)
 | Item | Recomendado |
 |---|---|
-| CPU | x86-64 moderno de 4 núcleos (ex.: Intel N100/N95) |
-| RAM | **4 GB** (8 GB se quiser rodar também PostgreSQL ou várias instâncias) |
-| Armazenamento | **SSD de 32 GB+** (interno) + pendrive/SSD externo para backup |
+| Processador | **4 núcleos a 2 GHz ou mais**, x86-64 moderno (ex.: Intel N100/N95) |
+| Memória RAM | **4 GB** (8 GB se quiser PostgreSQL ou várias instâncias) |
+| Armazenamento total | **32 GB ou mais** (SSD) |
 | Rede | Ethernet + IP **reservado** no roteador |
-| Energia | **nobreak** + BIOS configurada para "ligar após queda de energia" |
+| Energia | **nobreak** + BIOS em "ligar após queda de energia" |
 
 ## Onde colocar o servidor
 | Opção | Prós | Contras |
@@ -45,7 +47,7 @@ O mínimo deste kit é **exatamente o servidor onde ele roda hoje**: um **Dell W
 | **VPS Linux** (nuvem) | não cai com a energia; acesso de qualquer lugar | **IP de datacenter** pode ser bloqueado por lojas/captcha e olhado com desconfiança pelo WhatsApp; mensalidade; **não testado** neste kit |
 | Raspberry Pi | barato | **não testado** (Chromium/Node em ARM podem exigir ajustes) |
 
-Se escolher VPS: mínimo **2 GB de RAM, 20 GB de disco, Debian 13**, IP fixo, e prepare-se para resolver captcha com mais frequência.
+Se escolher VPS: mínimo **2 núcleos, 2 GB de RAM, 24 GB de armazenamento, Debian 13**, IP fixo, e prepare-se para resolver captcha com mais frequência.
 
 ## Rede e segurança do servidor
 - **Nenhuma porta precisa ser aberta na internet.** O robô só faz conexões de saída. O único acesso é o **SSH** (de preferência só pela rede local ou por VPN como o Tailscale). Veja `11-seguranca-e-backup.md`.
@@ -57,8 +59,9 @@ Se escolher VPS: mínimo **2 GB de RAM, 20 GB de disco, Debian 13**, IP fixo, e 
 - O estúdio de vídeo (Reels, voz) é **outro computador, opcional** (um PC potente); o servidor só recebe os vídeos prontos. Veja `08-conteudo-e-reels.md`.
 
 ## Antes de comprar: checklist
-- [ ] x86-64, 4 núcleos, **2 GB de RAM ou mais**
-- [ ] 8 GB de armazenamento interno **ou mais** (+ um pendrive de 16 GB)
+- [ ] x86-64, **4 núcleos a 1,44 GHz ou mais**
+- [ ] **2 GB de RAM ou mais**
+- [ ] **24 GB de armazenamento no total ou mais**
 - [ ] porta **Ethernet**
 - [ ] consegue instalar Debian/Ubuntu (a maioria dos thin clients e mini PCs sim; confira se aceita boot por USB)
 - [ ] um lugar com **energia estável** e, de preferência, um nobreak

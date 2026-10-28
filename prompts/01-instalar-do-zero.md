@@ -8,7 +8,7 @@ TAREFA: instalar o PromoBot Kit do zero no meu servidor, em MODO SIMULAÇÃO, se
 DADOS QUE VOU TE DAR (pergunte o que faltar, um item por vez):
 - endereço do servidor (IP) e usuário SSH; ou diga se é este mesmo computador
 - sistema operacional e versão (esperado: Debian 13 ou Ubuntu 24.04+, sem interface gráfica)
-- memória RAM, disco interno e se há pendrive/SSD para backup (mínimo aceito: 2 GB de RAM, 8 GB de disco)
+- processador (núcleos e GHz), memória RAM e armazenamento TOTAL (mínimo aceito: 4 núcleos a 1,44 GHz, 2 GB de RAM, 24 GB de armazenamento no total)
 
 O QUE FAZER
 1. Verifique o servidor contra o mínimo (docs/01a). Se estiver abaixo, PARE e me diga o que falta.

@@ -3,7 +3,7 @@
 Robô que **monitora, filtra, enriquece e publica ofertas e cupons** de e-commerce em grupos de WhatsApp (e, opcionalmente, Telegram, Instagram, Facebook, Threads e YouTube), com **link de afiliado do próprio dono**. Roda 24/7 num computador pequeno e barato (testado num Dell Wyse 3040: Atom, 2 GB de RAM) e foi construído com a ajuda do **Claude Code**.
 
 > ## ⚠️ Você precisa de um **servidor**
-> O robô tem que ficar **ligado 24 h por dia**: não roda no seu PC/notebook do dia a dia nem no celular. O **mínimo** é a configuração do servidor onde ele roda hoje, um **Dell Wyse 3040** (Intel Atom 4 núcleos, **2 GB de RAM**, 8 GB de armazenamento, rede cabeada, Debian 13), mais um pendrive de 16 GB para backup. Detalhes, medições reais e alternativas em [`docs/01a-servidor-e-requisitos.md`](docs/01a-servidor-e-requisitos.md).
+> O robô tem que ficar **ligado 24 h por dia**: não roda no seu PC/notebook do dia a dia nem no celular. O **mínimo** é a configuração do servidor onde ele roda hoje, um **Dell Wyse 3040**: processador de **4 núcleos a 1,44 GHz** (turbo até 1,92 GHz; Intel Atom x5-Z8350), **2 GB de RAM**, **24 GB de armazenamento no total**, rede cabeada e Debian 13. Detalhes, medições reais e alternativas em [`docs/01a-servidor-e-requisitos.md`](docs/01a-servidor-e-requisitos.md).
 
 > **Status: V0 (primeira versão para compartilhar).** O código é o mesmo que roda em produção, mas foi limpo dos dados pessoais do autor. A documentação foi escrita a partir do servidor real. **A instalação ainda não foi testada do zero numa máquina limpa** — leia `docs/00-LEIA-PRIMEIRO.md` antes de começar.
 

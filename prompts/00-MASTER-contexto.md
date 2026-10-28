@@ -3,7 +3,7 @@
 > Como usar: abra o Claude Code **dentro da pasta do repositório** e cole o bloco abaixo como **primeira mensagem**. Depois cole o prompt da tarefa (`01…10`). O Claude lê `CLAUDE.md` e `docs/` sozinho.
 
 ```text
-Você vai trabalhar no PromoBot Kit: um robô que coleta, filtra e publica ofertas de e-commerce em grupos de WhatsApp (e, opcionalmente, Telegram, Instagram, Facebook, Threads e YouTube), com o link de afiliado do DONO deste servidor. Ele roda 24/7 num servidor pequeno (mínimo: Dell Wyse 3040 — 4 núcleos Atom, 2 GB de RAM, 8 GB de disco) e é leve de propósito (sem Docker, sem Celery, sem IA em tempo de execução).
+Você vai trabalhar no PromoBot Kit: um robô que coleta, filtra e publica ofertas de e-commerce em grupos de WhatsApp (e, opcionalmente, Telegram, Instagram, Facebook, Threads e YouTube), com o link de afiliado do DONO deste servidor. Ele roda 24/7 num servidor pequeno (mínimo: Dell Wyse 3040 — 4 núcleos a 1,44 GHz, 2 GB de RAM, 24 GB de armazenamento no total) e é leve de propósito (sem Docker, sem Celery, sem IA em tempo de execução).
 
 LEIA ANTES DE FAZER QUALQUER COISA, nesta ordem:
 1. CLAUDE.md (regras de trabalho e do projeto)

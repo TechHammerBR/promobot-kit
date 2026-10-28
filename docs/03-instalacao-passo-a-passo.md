@@ -3,7 +3,7 @@
 > **Aviso V0:** estes passos foram escritos a partir de um servidor que já funciona (Debian 13, Python 3.13, Node 20, Dell Wyse 3040). **Ainda não foram repetidos numa máquina limpa.** Se algo não bater, use o prompt `prompts/01-instalar-do-zero.md` para o Claude Code adaptar ao seu caso — e depois corrija este arquivo.
 
 ## 0. O servidor (leia `01a-servidor-e-requisitos.md`)
-O robô precisa de um **servidor ligado 24 h**. **Mínimo = Dell Wyse 3040:** x86-64 de 4 núcleos (Atom x5-Z8350), **2 GB de RAM** (com swap), **8 GB** de armazenamento interno, cabo de rede, Debian 13 sem interface gráfica, mais **um pendrive de 16 GB** para backup. Recomendado: 4 GB de RAM e SSD de 32 GB. Nobreak é altamente aconselhável.
+O robô precisa de um **servidor ligado 24 h**. **Mínimo = Dell Wyse 3040:** processador de **4 núcleos a 1,44 GHz** (turbo até 1,92 GHz; Intel Atom x5-Z8350), **2 GB de RAM**, **24 GB de armazenamento no total**, rede cabeada e Debian 13 (sem interface gráfica). O armazenamento total cobre sistema, robô, dados, backup e swap. Recomendado: 4 núcleos a 2 GHz ou mais, 4 GB de RAM e 32 GB de armazenamento no total. Nobreak é altamente aconselhável.
 
 ## 1. Sistema operacional
 Instale **Debian 13 (trixie)** ou Ubuntu 24.04+, versão "servidor" (sem interface gráfica), com SSH. Crie o usuário de serviço (sugestão: `promobot`) com `sudo`.

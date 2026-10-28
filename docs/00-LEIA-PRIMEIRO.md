@@ -21,7 +21,7 @@ Um robô que publica ofertas com o **seu** link de afiliado em grupos de WhatsAp
 - Ver o grupo crescendo e gerando comissão: **semanas a meses**. O robô entrega conteúdo; audiência e conversão dependem de você.
 
 ## O que você precisa ter antes
-1. **Um servidor** (computador Linux ligado 24/7, com internet estável). O mínimo é a configuração de um **Dell Wyse 3040** (4 núcleos Atom, 2 GB de RAM, 8 GB de disco, cabo de rede). Veja `01a-servidor-e-requisitos.md` e depois `03-instalacao-passo-a-passo.md`.
+1. **Um servidor** (computador Linux ligado 24/7, com internet estável). O mínimo é a configuração de um **Dell Wyse 3040**: 4 núcleos a 1,44 GHz, 2 GB de RAM, 24 GB de armazenamento no total e cabo de rede. Veja `01a-servidor-e-requisitos.md` e depois `03-instalacao-passo-a-passo.md`.
 2. Conta de **afiliado** em pelo menos uma loja (Shopee é a mais simples; Mercado Livre exige o programa de afiliados ativo). `05-afiliados.md`.
 3. Um **número de WhatsApp** e um **grupo** (ou comunidade) onde o robô vai postar. `06-grupos-whatsapp-telegram.md`.
 4. Opcional: contas das redes sociais (Instagram profissional + Página do Facebook) e canal do YouTube. `07-redes-sociais.md`.

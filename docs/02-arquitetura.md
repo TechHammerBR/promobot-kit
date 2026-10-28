@@ -47,7 +47,7 @@ SQLite por padrão (arquivo único, backup fácil); PostgreSQL opcional (`DATABA
 Estado auxiliar em `data/*.json` e arquivos pequenos (índices de rodízio de palavras-chave, último post de cupons, estado dos agendamentos `schedule_state.json`, `control.json`).
 
 ## Por que sem Docker, Celery ou Redis
-- O equipamento do autor tem 2 GB de RAM e 8 GB de disco interno: cada camada a mais custa memória. `systemd` + `venv` resolvem.
+- O equipamento mínimo (Wyse 3040) tem 4 núcleos a 1,44 GHz, 2 GB de RAM e 24 GB de armazenamento no total: cada camada a mais custa memória. `systemd` + `venv` resolvem.
 - Se o volume crescer (vários clientes, milhares de ofertas por hora), `docker compose` + Postgres + uma fila são o próximo passo natural (ver `15-roadmap-e-ideias.md`).
 
 ## Ritmo e horários
