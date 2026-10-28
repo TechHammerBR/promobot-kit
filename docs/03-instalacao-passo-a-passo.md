@@ -1,6 +1,6 @@
 # 03 — Instalação passo a passo
 
-> **Aviso V0:** estes passos foram escritos a partir de um servidor que já funciona (Debian 13, Python 3.13, Node 20, Dell Wyse 3040). **Ainda não foram repetidos numa máquina limpa.** Se algo não bater, use o prompt `prompts/01-instalar-do-zero.md` para o Claude Code adaptar ao seu caso — e depois corrija este arquivo.
+> **Testado em 28/10/2026** numa VM Debian 13 com o **mínimo do Wyse** (4 núcleos, 2 GB de RAM, 4 GB de swap): os passos 1 a 10 funcionaram do zero (relatório e correções em `18-teste-de-instalacao.md`). **Não foi possível testar:** parear o WhatsApp (precisa de um número real) e o login do Mercado Livre. Se algo não bater no seu servidor, use `prompts/01-instalar-do-zero.md` e abra um Issue.
 
 ## 0. O servidor (leia `01a-servidor-e-requisitos.md`)
 O robô precisa de um **servidor ligado 24 h**. **Mínimo = Dell Wyse 3040:** processador de **4 núcleos a 1,44 GHz** (turbo até 1,92 GHz; Intel Atom x5-Z8350), **2 GB de RAM**, **24 GB de armazenamento no total**, rede cabeada e Debian 13 (sem interface gráfica). O armazenamento total cobre sistema, robô, dados, backup e swap. Recomendado: 4 núcleos a 2 GHz ou mais, 4 GB de RAM e 32 GB de armazenamento no total. Nobreak é altamente aconselhável.
@@ -66,6 +66,10 @@ tail -n 40 data/outbox.log     # os posts que SERIAM enviados
 ```
 Se aparecerem posts no `outbox.log`, a coleta, as regras e os textos estão funcionando.
 
+**O que esperar (medido na VM do mínimo do Wyse):** a coleta leva cerca de **1 minuto**; o log mostra linhas `collected` por fonte (AliExpress, Pelando, Promobit, Gatry, Shopee…); o `ctl status` mostra `ofertas_na_fila` em dezenas; o primeiro post simulado aparece em `data/outbox.log` em seguida.
+
+> **Atenção:** para a simulação gerar posts você precisa de **pelo menos uma forma de gerar link de afiliado**: as chaves da **Shopee** ou do **AliExpress** (`05-afiliados.md`). Sem nenhuma chave, o AliExpress e a Shopee ficam sem link e quase nada vira post. As ofertas do Mercado Livre/Pelando saem como **bônus** (link limpo, sem comissão) enquanto o navegador do ML não está logado (o `.env.example` já vem com `ML_PAUSED_UNTIL` e `ML_BONUS_MODE` para isso). Sem esse perfil o robô tenta o navegador do ML, falha com `Connection refused` e trava com o alerta "login do ML expirou?".
+
 ## 6. Rodar os testes
 ```bash
 PYTHONPATH=/opt/promobot venv/bin/python -m pytest -q tests
@@ -85,7 +89,9 @@ Confira:
 ```bash
 systemctl is-active promobot-bot promobot-wa
 journalctl -u promobot-bot -f
+ss -tln | grep -E ':3000|:8088'      # o conector (3000) deve estar em 127.0.0.1; o status (8088) fica na rede local
 ```
+Na VM de teste os três serviços ficaram `active`, respeitaram os limites de memória e **voltaram sozinhos depois de reiniciar**. Com o navegador do ML, a tela virtual e o VNC ligados juntos, o uso foi de ~0,94 GB de 1,9 GB de RAM.
 
 ## 8. Conectar o WhatsApp
 Siga `06-grupos-whatsapp-telegram.md` (pareamento por código de 8 caracteres ou QR).

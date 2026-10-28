@@ -7,7 +7,7 @@ Robô que **monitora, filtra, enriquece e publica ofertas e cupons** de e-commer
 
 > **Status: V0 em fase de testes** (distribuição gratuita para um grupo pequeno; ainda não está à venda). Veja `docs/17-distribuicao-e-testes.md`.
 >
-> **V0 (primeira versão para compartilhar).** O código é o mesmo que roda em produção, mas foi limpo dos dados pessoais do autor. A documentação foi escrita a partir do servidor real. **A instalação ainda não foi testada do zero numa máquina limpa** — leia `docs/00-LEIA-PRIMEIRO.md` antes de começar.
+> **V0 (primeira versão para compartilhar).** O código é o mesmo que roda em produção, mas foi limpo dos dados pessoais do autor. A documentação foi escrita a partir do servidor real. **A instalação foi testada do zero numa VM com o mínimo do Wyse** (28/10/2026; veja `docs/18-teste-de-instalacao.md`). Ainda **não** foi testado o pareamento do WhatsApp (precisa de número real) nem o login do Mercado Livre. Leia `docs/00-LEIA-PRIMEIRO.md` antes de começar.
 
 ## O que ele faz
 

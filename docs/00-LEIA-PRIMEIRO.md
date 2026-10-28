@@ -52,6 +52,7 @@ Leia `12-riscos-e-termos.md` inteiro. Em uma frase cada:
 | Trocar a marca | `13-white-label.md` |
 | Resolver um problema | `14-problemas-comuns.md` |
 | Participar da fase de testes e dar retorno | `17-distribuicao-e-testes.md` |
+| Ver o que já foi testado (VM) e os problemas achados | `18-teste-de-instalacao.md` |
 
 ## Glossário rápido
 - **Afiliado:** você ganha comissão quando alguém compra por um link seu.

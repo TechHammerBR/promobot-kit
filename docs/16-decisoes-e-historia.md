@@ -31,6 +31,7 @@ Registro do **porquê** de cada escolha (útil para o Claude e para você não r
 | 28/10 | **Foto:** regra "sem produto em destaque" (textura de madeira passou); **chamada v2** (selo -N% no título, sem repetir %, linha da loja); **cupom relevante** (VALETECH para tech, sem "Meli+"/"carro"); **Shorts agendados** na plataforma | qualidade |
 | 28/10 | **Sem dicas/conteúdo educativo nos grupos de WhatsApp**: só melhorar a chamada | decisão do dono |
 | 28/10 | **Este kit V0**, distribuído para testes (sem venda por enquanto) | testar com um grupo pequeno antes de qualquer venda |
+| 28/10 | **Teste de instalação em VM** (mínimo do Wyse): achou 9 problemas do kit (padrões herdados do Docker, scripts com caminhos do autor, permissão +x, API do WhatsApp em todas as interfaces, `diag` com falso alarme, 2 testes-bomba-relógio…), todos corrigidos | ver `18-teste-de-instalacao.md` |
 
 ## Lições técnicas (para não repetir)
 - **Barras invertidas em heredoc/`bash -c`**: o shell come as barras (`\b` vira backspace invisível). Para patches com regex, **escreva o script num arquivo** e rode; valide com `grep -c $'\x08'` e `py_compile`.

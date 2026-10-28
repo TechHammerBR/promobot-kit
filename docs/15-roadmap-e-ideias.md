@@ -12,7 +12,7 @@ O que está **pronto**, o que está **pela metade** e o que é **ideia**. Use co
 - Conteúdo: Stories, feed, carrossel educativo, jogos, novidades; fila de Reels; Shorts agendados no YouTube
 
 ## Pela metade / limitações conhecidas
-- **Instalação do zero ainda não repetida** numa máquina limpa (este V0 inclui um teste em VM; veja `16`).
+- **Instalação:** testada do zero numa VM com o mínimo do Wyse (`18`). Falta repetir num **segundo servidor real** e testar o pareamento do WhatsApp e o login do ML por quem tem os números/contas.
 - **TikTok:** não implementado; depende de auditoria (`07`).
 - **Estúdio de vídeo** (PC): não incluído.
 - **White-label** exige trabalho manual na camada 3 (`13`): serviços da loja e identidade visual estão no código.

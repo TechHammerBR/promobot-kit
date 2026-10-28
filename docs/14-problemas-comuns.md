@@ -54,5 +54,18 @@ Fonte sem itens (ou de nicho que você não usa). Pode ignorar ou desligar o col
 ## Banco "database is locked" / lento
 SQLite sob carga. Reinicie o robô; a manutenção noturna compacta o banco. Se o volume crescer, migre para PostgreSQL (`DATABASE_URL`).
 
+## Problemas que apareceram no teste de instalação (VM, 28/10/2026)
+| Sintoma | Causa | Solução |
+|---|---|---|
+| `adduser: command not found` | imagem mínima de Debian | `sudo apt install -y adduser sudo` |
+| `fatal: could not read Username for 'https://github.com'` | repositório **privado** sem login | token, `gh auth login` ou ZIP (`03`, passo 3) |
+| `Name or service not known` ao publicar | padrões antigos apontavam para nomes de Docker (`wa`, `linkgen`, `ollama`) | já corrigido: o kit usa `127.0.0.1` |
+| `Connection refused` e alerta "login do ML expirou?" sem ter usado o ML | oferta do ML tentando o navegador que não está logado | perfil leve: `ML_PAUSED_UNTIL` + `ML_BONUS_MODE` (já no `.env.example`) |
+| coleta traz `verificacao anti-robo` do Mercado Livre | o ML pede verificação a robôs sem o navegador logado | esperado; o robô **não** burla; veja `05` |
+| `./backup.sh: Permission denied` | script sem permissão de execução | `chmod +x backup.sh ferramentas/*.sh` (o Git do kit já guarda o +x) |
+| `perl: warning: Setting locale failed` ao instalar pacotes | locale não configurado | inofensivo; opcional: `sudo apt install locales && sudo dpkg-reconfigure locales` |
+| `ctl diag` diz "IA local fora do ar" / "gerador de links fora do ar" | o diagnóstico cobrava serviços que estão desligados de propósito | já corrigido |
+| 2 testes falhando (`catchup`, `canal_de_casa`) | data fixa no teste + regra de casa mudou | já corrigido |
+
 ## Quando pedir ajuda ao Claude
 Use `prompts/08-diagnostico-e-manutencao.md`: ele já traz o roteiro (rodar `status`, `diag`, `alertas`, ler logs) e as regras de segurança.
