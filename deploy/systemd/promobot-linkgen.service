@@ -1,0 +1,23 @@
+[Unit]
+Description=PromoBot - navegador logado no Mercado Livre (gera os links meli.la)
+After=network-online.target promobot-tela.service
+Requires=promobot-tela.service
+Wants=network-online.target
+
+[Service]
+User=promobot
+WorkingDirectory=/opt/promobot/linkgen
+Environment=DISPLAY=:99 PYTHONUNBUFFERED=1 TZ=America/Sao_Paulo
+Environment=LINKGEN_DATA=/opt/promobot/data/linkgen LINKGEN_CHROMIUM=/usr/bin/chromium LINKGEN_BIND=127.0.0.1
+ExecStart=/opt/promobot/venv/bin/python -u server.py
+Restart=always
+RestartSec=20
+# teto de memória: se o navegador passar disso o sistema o reinicia sozinho (o robô e o WhatsApp não são afetados)
+MemoryHigh=1100M
+MemoryMax=1300M
+OOMScoreAdjust=600
+KillMode=control-group
+TimeoutStopSec=20
+
+[Install]
+WantedBy=multi-user.target

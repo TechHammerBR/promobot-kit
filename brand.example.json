@@ -1,0 +1,11 @@
+{
+  "substituicoes": {
+    "@techhammer.br": "@seu_instagram",
+    "Tech Hammer": "Sua Marca",
+    "TechHammer": "Sua Marca",
+    "TECHHAMMER": "SUA MARCA",
+    "techhammer": "suamarca",
+    "Zona Sul": "sua regiao"
+  },
+  "observacao": "Copie para brand.json e edite. Rode primeiro sem --aplicar. Veja docs/13-white-label.md para o que NAO se resolve com troca de texto."
+}

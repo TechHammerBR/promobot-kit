@@ -1,0 +1,18 @@
+[Unit]
+Description=PromoBot - conector do WhatsApp
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=promobot
+WorkingDirectory=/opt/promobot/wa
+Environment=WA_DATA_DIR=/opt/promobot/data/wa NODE_OPTIONS=--max-old-space-size=256
+ExecStart=/usr/bin/node index.mjs
+Restart=always
+RestartSec=10
+MemoryHigh=300M
+MemoryMax=400M
+OOMScoreAdjust=-300
+
+[Install]
+WantedBy=multi-user.target

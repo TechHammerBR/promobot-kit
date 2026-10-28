@@ -1,0 +1,12 @@
+[Unit]
+Description=PromoBot: entrega os Reels prontos da fila (feitos no PC) na hora marcada
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=promobot
+WorkingDirectory=/opt/promobot
+ExecStart=/opt/promobot/venv/bin/python /opt/promobot/ferramentas/publicar_fila.py processar
+Nice=10
+MemoryMax=450M
+TimeoutStartSec=30min

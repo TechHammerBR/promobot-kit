@@ -1,0 +1,14 @@
+[Unit]
+Description=PromoBot - pagina de status local (somente leitura, porta 8088)
+After=network-online.target
+
+[Service]
+User=promobot
+ExecStart=/opt/promobot/venv/bin/python /opt/promobot/ferramentas/status_web.py
+Restart=always
+RestartSec=10
+Nice=10
+MemoryMax=80M
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=PromoBot: confere a fila de Reels prontos a cada 5 minutos
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=5min
+AccuracySec=30s
+
+[Install]
+WantedBy=timers.target
+memoria.conf
+[Service]
+# 14/10/2026: Reel diário (ffmpeg ~250 MB) roda dentro do robô; folga para não travar nem ser morto pelo limite
+MemoryHigh=550M
+MemoryMax=800M

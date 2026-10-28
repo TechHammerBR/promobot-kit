@@ -1,0 +1,26 @@
+# segredos e dados: NUNCA versionar
+.env
+.env.*
+!.env.example
+data/
+*.db
+*.sqlite
+*.pem
+*.key
+youtube_token.json
+youtube_client.json
+*token*.txt
+# dependencias e caches
+venv/
+.venv/
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+# backups e logs
+*.bak*
+*.log
+backups/
+# sistema
+.DS_Store
+Thumbs.db

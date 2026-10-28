@@ -1,0 +1,9 @@
+Ofertas de tecnologia todos os dias.
+
+Grupo de avisos: so admins enviam mensagens.
+
+Outros grupos:
+Casa: <link-do-grupo-casa>
+Tecnologia: <link-do-grupo-tech>
+
+#Anuncio

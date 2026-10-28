@@ -1,0 +1,11 @@
+{
+  "name": "promobot-wa",
+  "private": true,
+  "type": "module",
+  "main": "index.mjs",
+  "dependencies": {
+    "baileys": "7.0.0-rc14",
+    "pino": "^9.0.0",
+    "qrcode": "^1.5.4"
+  }
+}

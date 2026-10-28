@@ -1,0 +1,12 @@
+[Unit]
+Description=PromoBot - ver a tela do navegador (só durante o login; acesso por túnel SSH)
+After=promobot-tela.service
+Requires=promobot-tela.service
+
+[Service]
+User=promobot
+ExecStart=/bin/sh -c '/usr/bin/x11vnc -display :99 -forever -shared -quiet -skip_lockkeys -localhost -nopw -rfbport 5900 & exec /usr/bin/websockify --web /usr/share/novnc 127.0.0.1:6080 127.0.0.1:5900'
+KillMode=control-group
+MemoryMax=200M
+# desliga sozinho depois de 2 horas, para não ficar aberto por esquecimento
+RuntimeMaxSec=7200

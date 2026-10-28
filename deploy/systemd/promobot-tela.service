@@ -1,0 +1,13 @@
+[Unit]
+Description=PromoBot - tela virtual do navegador do Mercado Livre
+
+[Service]
+User=promobot
+ExecStartPre=/bin/rm -f /tmp/.X99-lock
+ExecStart=/usr/bin/Xvfb :99 -screen 0 1366x900x24 -nolisten tcp
+Restart=always
+RestartSec=5
+MemoryMax=150M
+
+[Install]
+WantedBy=multi-user.target

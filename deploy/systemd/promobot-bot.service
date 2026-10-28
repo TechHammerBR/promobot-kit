@@ -1,0 +1,18 @@
+[Unit]
+Description=PromoBot - coleta e publica ofertas (WhatsApp + Telegram)
+After=network-online.target promobot-wa.service
+Wants=network-online.target promobot-wa.service
+
+[Service]
+User=promobot
+WorkingDirectory=/opt/promobot
+Environment=PYTHONUNBUFFERED=1 TZ=America/Sao_Paulo
+ExecStart=/opt/promobot/venv/bin/python -m app.main
+Restart=always
+RestartSec=15
+MemoryHigh=350M
+MemoryMax=500M
+OOMScoreAdjust=-300
+
+[Install]
+WantedBy=multi-user.target
