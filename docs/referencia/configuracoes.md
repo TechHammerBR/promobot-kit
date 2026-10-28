@@ -25,14 +25,14 @@ Valores longos (listas de palavras-chave) foram resumidos: veja o padrao complet
 | `REPEAT_MIN_DROP` | float | `0.3` | dentro de REPEAT_DAYS só repete se o preço novo for >= 30% menor que o da última vez (dono, 23/10) |
 | `REPEAT_DAYS` | int | `3` | mesmo produto não volta antes disso |
 | `QUEUE_MAX_HOURS` | int | `6` | oferta mais velha que isso na fila expira |
-| `LINKGEN_URL` | str | `http://linkgen:8000` | oferta mais velha que isso na fila expira |
+| `LINKGEN_URL` | str | `http://127.0.0.1:8000` | oferta mais velha que isso na fila expira |
 | `LINKGEN_ENABLED` | bool | `True` | navegador logado (ML: meli.la e cupons gerais). False no robô leve sem navegador |
 | `SIMULATE_POSTS` | bool | `False` | corta peças avulsas/acessórios minúsculos (R$) |
 | `GROUP_INVITE_LINK` | str | `` | ex.: link de convite do grupo/canal do WhatsApp |
 | `GROUP_INVITE_LABEL` | str | `Grupo no WhatsApp` | ex.: link de convite do grupo/canal do WhatsApp |
 | `POST_HASHTAG` | str | `#Anuncio` | quando existir o canal do Telegram |
 | `COUPON_REFRESH_HOURS` | int | `6` |  |
-| `CONTENT_ENABLED` | bool | `True` | agenda de conteúdo (stories, feed, educativo, jogos, reels). False no robô leve (só grupos) |
+| `CONTENT_ENABLED` | bool | `False` | agenda de conteúdo (stories, feed, educativo, jogos, reels). False no robô leve (só grupos) |
 | `VISION_MODEL` | str | `qwen3-vl:8b-instruct` | valida se a foto é do produto (mesmo modelo: sem troca na GPU) |
 | `STORE_WHATSAPP` | str | `` | numero da loja so com digitos (5511999999999): vira o link wa.me/ dos orcamentos |
 | `CONVITE_ENABLED` | bool | `False` | grupos, 1 mensagem a cada 1,5–4 min, quem já está nos grupos é pulado; texto em app/assets/convite.txt. |
@@ -164,14 +164,14 @@ Valores longos (listas de palavras-chave) foram resumidos: veja o padrao complet
 |---|---|---|---|
 | `WHATSAPP_GROUP_NAME` | str | `` | vazio = WhatsApp desligado |
 | `WHATSAPP_NUMBER` | str | `` | número do robô (só dígitos, com 55) para gerar código de pareamento |
-| `WA_URL` | str | `http://wa:3000` | número do robô (só dígitos, com 55) para gerar código de pareamento |
+| `WA_URL` | str | `http://127.0.0.1:3000` | número do robô (só dígitos, com 55) para gerar código de pareamento |
 
 ## IA local (opcional)
 
 | Variavel | Tipo | Padrao | O que faz |
 |---|---|---|---|
-| `OLLAMA_URL` | str | `http://ollama:11434` |  |
-| `AI_ENABLED` | bool | `True` |  |
+| `OLLAMA_URL` | str | `http://127.0.0.1:11434` |  |
+| `AI_ENABLED` | bool | `False` |  |
 | `AI_MODEL` | str | `qwen3-vl:8b-instruct` | modelo ÚNICO (texto+visão+comandos), 100% na RTX 4060 |
 
 ## Grupo de CASA (segundo canal)
@@ -215,7 +215,7 @@ Valores longos (listas de palavras-chave) foram resumidos: veja o padrao complet
 | Variavel | Tipo | Padrao | O que faz |
 |---|---|---|---|
 | `SOCIAL_CTA` | str | `LINK DO GRUPO NA BIO` |  |
-| `SOCIAL_ENABLED` | bool | `True` | Meta: Página + Instagram (app/social.py) |
+| `SOCIAL_ENABLED` | bool | `False` | Meta: Página + Instagram (app/social.py) |
 | `SOCIAL_STORY_TIMES` | str | `11:00,14:00,18:00,21:00` | 4/dia (dono: sem poluição visual) |
 | `SOCIAL_FEED_TIME` | str | `19:30` | 4/dia (dono: sem poluição visual) |
 | `SOCIAL_FEED_DAYS` | str | `mon,wed,fri` | oferta no feed só nesses dias (feed = vitrine da loja) |
@@ -225,14 +225,14 @@ Valores longos (listas de palavras-chave) foram resumidos: veja o padrao complet
 | Variavel | Tipo | Padrao | O que faz |
 |---|---|---|---|
 | `VOICE_ENABLED` | bool | `False` | narração com a voz do dono nos Reels (serviço /opt/apps/voicelab); ligar após aprovação do dono |
-| `VOICE_URL` | str | `http://voice:8300` | narração com a voz do dono nos Reels (serviço /opt/apps/voicelab); ligar após aprovação do dono |
+| `VOICE_URL` | str | `http://127.0.0.1:8300` | narração com a voz do dono nos Reels (serviço /opt/apps/voicelab); ligar após aprovação do dono |
 | `VOICE_STYLE` | str | `neutro` | neutro / solto / animado / vibrante (estilos medidos em voicelab/lab/expressivo.py) |
 
 ## Threads
 
 | Variavel | Tipo | Padrao | O que faz |
 |---|---|---|---|
-| `THREADS_ENABLED` | bool | `True` | Threads (app/threads.py) |
+| `THREADS_ENABLED` | bool | `False` | Threads (app/threads.py) |
 | `THREADS_TOKEN` 🔒 | str | `` | Threads (app/threads.py) |
 
 ## Meta (Instagram e Facebook)
@@ -248,7 +248,7 @@ Valores longos (listas de palavras-chave) foram resumidos: veja o padrao complet
 | Variavel | Tipo | Padrao | O que faz |
 |---|---|---|---|
 | `REELS_ENABLED` | bool | `False` | 14/10/2026: Wyse sem vídeo/voz; Reels só voltam com máquina maior |
-| `REEL_OFERTAS_ENABLED` | bool | `True` | Reel diário de ofertas (só na aba Reels, fora da grade do perfil) |
+| `REEL_OFERTAS_ENABLED` | bool | `False` | Reel diário de ofertas (só na aba Reels, fora da grade do perfil) |
 | `REEL_OFERTAS_HORA` | str | `20:00` | Reel diário de ofertas (só na aba Reels, fora da grade do perfil) |
 | `REEL_LEVE` | bool | `True` | Wyse: sem zoom, música de arquivo (/srv/cache/music) |
 
@@ -256,7 +256,7 @@ Valores longos (listas de palavras-chave) foram resumidos: veja o padrao complet
 
 | Variavel | Tipo | Padrao | O que faz |
 |---|---|---|---|
-| `ESTUDIO_ENABLED` | bool | `True` | ESTÚDIO (14/10/2026): novidades de tecnologia escritas pela IA do PC do dono (app/estudio.py) |
+| `ESTUDIO_ENABLED` | bool | `False` | ESTÚDIO (14/10/2026): novidades de tecnologia escritas pela IA do PC do dono (app/estudio.py) |
 | `ESTUDIO_FOTO_MATERIA` | bool | `False` | capa com a foto da própria matéria (crédito na imagem); decisão do dono |
 | `ESTUDIO_SIMPLES` | bool | `False` | True = novidades sem IA e sem o PC do dono (manchete + resumo do feed + fontes) |
 | `ESTUDIO_ESTOQUE_ALVO` | int | `3` | posts prontos + tarefas esperando o PC |

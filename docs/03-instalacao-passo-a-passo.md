@@ -9,6 +9,7 @@ O robô precisa de um **servidor ligado 24 h**. **Mínimo = Dell Wyse 3040:** pr
 Instale **Debian 13 (trixie)** ou Ubuntu 24.04+, versão "servidor" (sem interface gráfica), com SSH. Crie o usuário de serviço (sugestão: `promobot`) com `sudo`.
 
 ```bash
+sudo apt install -y adduser sudo    # só se o comando 'adduser' não existir (imagens mínimas)
 sudo adduser promobot
 sudo usermod -aG sudo promobot
 ```
@@ -26,9 +27,14 @@ node --version   # precisa ser 20 ou mais
 
 ## 3. Código e ambiente Python
 ```bash
+# 1) baixe o kit para a sua pasta pessoal (NÃO apague depois: o passo 7 usa deploy/)
+git clone <URL-DO-REPOSITORIO> ~/promobot-kit
+# 2) copie o robô para /opt/promobot (o ponto em "src/." copia também arquivos ocultos)
 sudo mkdir -p /opt/promobot && sudo chown promobot: /opt/promobot
+cp -r ~/promobot-kit/src/. /opt/promobot/
+cp ~/promobot-kit/.env.example /opt/promobot/.env
 cd /opt/promobot
-git clone <URL-DO-SEU-REPOSITORIO> tmp && cp -r tmp/src/* . && cp tmp/.env.example .env && rm -rf tmp
+# 3) ambiente Python com as versões fixadas
 python3 -m venv venv
 venv/bin/pip install -r requirements.lite.txt
 mkdir -p data/logs
@@ -36,6 +42,13 @@ chmod 600 .env
 ```
 - `requirements.lite.txt` é o conjunto enxuto (robô sem IA/vídeo). `requirements.txt` acrescenta o driver do PostgreSQL.
 - O `playwright` (usado pelo `linkgen`) **não baixa navegador**: usa o Chromium do sistema (`LINKGEN_CHROMIUM=/usr/bin/chromium`).
+- O `.env.example` já vem no **perfil leve e em modo simulação** (`SIMULATE_POSTS=true`).
+
+> **Repositório privado no GitHub:** o `git clone` por HTTPS pede **usuário e token** (a senha da conta não funciona). Se aparecer `fatal: could not read Username for 'https://github.com'`, é falta de login. Três jeitos:
+> 1. **Token (mais simples):** no GitHub → *Settings → Developer settings → Personal access tokens → Fine-grained tokens* → crie um token só com acesso de **leitura ao conteúdo** deste repositório; use o token como senha no `git clone`.
+> 2. **GitHub CLI:** `sudo apt install gh && gh auth login`, depois `gh repo clone <dono>/promobot-kit ~/promobot-kit`.
+> 3. **ZIP:** na página do repositório, *Code → Download ZIP*, envie para o servidor (`scp`) e descompacte em `~/promobot-kit`.
+> Seu acesso ao repositório depende de o autor ter te convidado (*Settings → Collaborators*).
 
 ## 4. Conector do WhatsApp
 ```bash
@@ -60,9 +73,9 @@ PYTHONPATH=/opt/promobot venv/bin/python -m pytest -q tests
 Alguns testes dependem do `.env` (ex.: intervalos): se você mudou os padrões, eles podem falhar — é esperado.
 
 ## 7. Serviços do systemd
-Os modelos estão em `deploy/systemd/*.service` (e o timer em `LEIA-timer-e-overrides.txt`). Copie, ajuste o usuário/caminhos se for diferente e ative:
+Os modelos estão em `~/promobot-kit/deploy/systemd/*.service` (e o timer em `LEIA-timer-e-overrides.txt`). Copie, ajuste o usuário/caminhos se for diferente e ative:
 ```bash
-sudo cp deploy/systemd/promobot-*.service /etc/systemd/system/
+sudo cp ~/promobot-kit/deploy/systemd/promobot-*.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable --now promobot-wa promobot-bot promobot-status
 # só se for usar Mercado Livre com link de afiliado:

@@ -58,7 +58,7 @@ class Settings(BaseSettings):
     repeat_min_drop: float = 0.30  # dentro de REPEAT_DAYS só repete se o preço novo for >= 30% menor que o da última vez (dono, 23/10)
     repeat_days: int = 3  # mesmo produto não volta antes disso
     queue_max_hours: int = 6  # oferta mais velha que isso na fila expira
-    linkgen_url: str = "http://linkgen:8000"
+    linkgen_url: str = "http://127.0.0.1:8000"
     linkgen_enabled: bool = True  # navegador logado (ML: meli.la e cupons gerais). False no robô leve sem navegador
     ml_bonus_mode: bool = False  # com ML_PAUSED_UNTIL ativo: segue coletando ML e posta como BÔNUS (link limpo, sem comissão, sem abrir a página do produto)
     ml_paused_until: str = ""  # AAAA-MM-DD: até esta data não coleta/posta ML (conta de afiliado suspensa)
@@ -111,10 +111,10 @@ class Settings(BaseSettings):
     # Canais / serviços internos
     whatsapp_group_name: str = ""  # vazio = WhatsApp desligado
     whatsapp_number: str = ""  # número do robô (só dígitos, com 55) para gerar código de pareamento
-    wa_url: str = "http://wa:3000"
-    ollama_url: str = "http://ollama:11434"
-    ai_enabled: bool = True
-    content_enabled: bool = True  # agenda de conteúdo (stories, feed, educativo, jogos, reels). False no robô leve (só grupos)
+    wa_url: str = "http://127.0.0.1:3000"
+    ollama_url: str = "http://127.0.0.1:11434"
+    ai_enabled: bool = False
+    content_enabled: bool = False  # agenda de conteúdo (stories, feed, educativo, jogos, reels). False no robô leve (só grupos)
     ai_model: str = "qwen3-vl:8b-instruct"  # modelo ÚNICO (texto+visão+comandos), 100% na RTX 4060
     vision_model: str = "qwen3-vl:8b-instruct"  # valida se a foto é do produto (mesmo modelo: sem troca na GPU)
     # SEGUNDO CANAL (14/10/2026): comunidade do WhatsApp "Meu lar, minha oferta" = ofertas de CASA (cozinha, eletrodomésticos,
@@ -205,11 +205,11 @@ class Settings(BaseSettings):
     social_cta: str = "LINK DO GRUPO NA BIO"
     # Status do WhatsApp (recorrente). Desligado até o dono aprovar a prévia.
     voice_enabled: bool = False  # narração com a voz do dono nos Reels (serviço /opt/apps/voicelab); ligar após aprovação do dono
-    voice_url: str = "http://voice:8300"
+    voice_url: str = "http://127.0.0.1:8300"
     voice_style: str = "neutro"  # neutro | solto | animado | vibrante (estilos medidos em voicelab/lab/expressivo.py)
-    threads_enabled: bool = True  # Threads (app/threads.py)
+    threads_enabled: bool = False  # Threads (app/threads.py)
     threads_token: str = ""
-    social_enabled: bool = True  # Meta: Página + Instagram (app/social.py)
+    social_enabled: bool = False  # Meta: Página + Instagram (app/social.py)
     meta_page_id: str = ""
     meta_ig_id: str = ""
     meta_page_token: str = ""
@@ -224,12 +224,12 @@ class Settings(BaseSettings):
     games2_time: str = "19:00"
     status_enabled: bool = False
     reels_enabled: bool = False  # 14/10/2026: Wyse sem vídeo/voz; Reels só voltam com máquina maior
-    reel_ofertas_enabled: bool = True  # Reel diário de ofertas (só na aba Reels, fora da grade do perfil)
+    reel_ofertas_enabled: bool = False  # Reel diário de ofertas (só na aba Reels, fora da grade do perfil)
     reel_ofertas_hora: str = "20:00"
     reel_leve: bool = True  # Wyse: sem zoom, música de arquivo (/srv/cache/music)
     feed_vendas_enabled: bool = False  # 14/10: oferta do dia, radar e top 5 fora do feed (dono: feed é conteúdo, venda vai p/ Stories)
     # ESTÚDIO (14/10/2026): novidades de tecnologia escritas pela IA do PC do dono (app/estudio.py)
-    estudio_enabled: bool = True
+    estudio_enabled: bool = False
     pexels_api_key: str = ""  # foto livre de fundo da capa das novidades (opcional; sem chave = ícone da editoria)
     estudio_foto_materia: bool = False  # capa com a foto da própria matéria (crédito na imagem); decisão do dono
     estudio_simples: bool = False  # True = novidades sem IA e sem o PC do dono (manchete + resumo do feed + fontes)
