@@ -17,16 +17,16 @@ O que está **pronto**, o que está **pela metade** e o que é **ideia**. Use co
 - **Estúdio de vídeo** (PC): não incluído.
 - **White-label** exige trabalho manual na camada 3 (`13`): serviços da loja e identidade visual estão no código.
 - **Painel web** de gestão: só uma página de status somente leitura.
-- **Um cliente por servidor:** não há multi-tenant.
+- **Uma pessoa por servidor:** não há multiusuário.
 
 ## Ideias ordenadas por valor
 1. **Painel web** simples (login) para ver fila, pausar, mudar desconto/limite, ver alertas — hoje só por linha de comando.
 2. **Instalador** (`install.sh`) que faz os passos de `03` sozinho e valida (hoje é manual).
-3. **Multi-cliente:** um servidor atendendo vários grupos/contas com isolamento (exige banco por cliente ou PostgreSQL com `tenant_id`).
+3. **Multiusuário:** um servidor atendendo vários grupos/contas com isolamento (exige banco por cliente ou PostgreSQL com `tenant_id`).
 4. **Cupons por categoria** com mais fontes (além do Pelando) e confirmação real de aplicabilidade quando a loja expõe.
 5. **Estúdio de Reels como produto separado** (PC) com gerador de capas, legendas e trilhas.
 6. **TikTok** por rascunhos (`video.upload`) ou integração com ferramenta de agendamento.
-7. **API oficial do WhatsApp Business** como alternativa ao conector não oficial, para clientes que não aceitam o risco.
+7. **API oficial do WhatsApp Business** como alternativa ao conector não oficial, para quem não aceita o risco.
 8. **Relatório semanal** de desempenho (cliques por etiqueta, comissão estimada) puxando dos painéis de afiliado onde houver API.
 9. **Detector de preço falso** mais forte com histórico longo e comparação entre lojas.
 10. **Modo Docker/Compose** opcional para quem tem máquina maior.

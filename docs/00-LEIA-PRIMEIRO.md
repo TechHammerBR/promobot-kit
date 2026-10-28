@@ -3,7 +3,7 @@
 Este guia é curto de propósito. Ele responde: **vale a pena, quanto custa, quanto tempo leva, o que pode dar errado e o que você precisa ter antes de começar.**
 
 ## O que você está recebendo
-Um robô que publica ofertas com o **seu** link de afiliado em grupos de WhatsApp (e opcionalmente outras redes), 24 horas por dia, num computador pequeno. É o mesmo robô que roda em produção para o autor, sem os dados pessoais dele. É um **kit**, não um serviço pronto: você instala no seu equipamento e usa as suas contas.
+Um robô que publica ofertas com o **seu** link de afiliado em grupos de WhatsApp (e opcionalmente outras redes), 24 horas por dia, num computador pequeno. É o mesmo robô que roda em produção para o autor, sem os dados pessoais dele. É um **kit em fase de testes**, não um serviço pronto: você instala no seu equipamento e usa as suas contas. Seu retorno ajuda a melhorar os guias (`17-distribuicao-e-testes.md`).
 
 ## Quanto custa de verdade
 | Item | Custo aproximado |
@@ -51,7 +51,7 @@ Leia `12-riscos-e-termos.md` inteiro. Em uma frase cada:
 | Segurança e backup | `11-seguranca-e-backup.md` |
 | Trocar a marca | `13-white-label.md` |
 | Resolver um problema | `14-problemas-comuns.md` |
-| Vender ou revender este kit | `17-comercial.md` |
+| Participar da fase de testes e dar retorno | `17-distribuicao-e-testes.md` |
 
 ## Glossário rápido
 - **Afiliado:** você ganha comissão quando alguém compra por um link seu.

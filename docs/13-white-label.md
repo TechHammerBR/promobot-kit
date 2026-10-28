@@ -45,10 +45,10 @@ Estes itens **não** se resolvem com troca de texto. Use `prompts/06-whitelabel.
 6. Faça uma semana em simulação lendo `data/outbox.log` antes de ligar.
 Prompt pronto: `prompts/07-novo-nicho.md`.
 
-## Antes de entregar a um cliente
+## Antes de entregar a quem vai testar
 - [ ] `whitelabel.py --listar` não encontra mais a marca do autor
-- [ ] `.env` do cliente com chaves **dele**; nenhum dado do autor no servidor
-- [ ] logos/descrições/convites do cliente em `assets/`
-- [ ] serviços e preços da tabela dele (ou conteúdo da loja desligado)
+- [ ] `.env` da pessoa com chaves **dela**; nenhum dado do autor no servidor
+- [ ] logos/descrições/convites da pessoa em `assets/`
+- [ ] serviços e preços da tabela da pessoa (ou conteúdo da loja desligado)
 - [ ] testes passam (`pytest`) e `ctl status` está verde
-- [ ] cliente sabe os riscos (`12-riscos-e-termos.md`) e como pedir ajuda
+- [ ] a pessoa sabe os riscos (`12-riscos-e-termos.md`) e como pedir ajuda

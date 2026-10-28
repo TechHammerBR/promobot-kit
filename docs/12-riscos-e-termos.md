@@ -1,6 +1,6 @@
 # 12 — Riscos legais e termos de uso
 
-> **Não é aconselhamento jurídico.** É um mapa dos riscos que o autor conhece. Antes de **vender** ou **operar em escala**, consulte um advogado e leia os termos atuais de cada plataforma (eles mudam).
+> **Não é aconselhamento jurídico.** É um mapa dos riscos que o autor conhece. Antes de **distribuir mais amplamente**, **vender** ou **operar em escala**, consulte um advogado e leia os termos atuais de cada plataforma (eles mudam).
 
 ## 1. WhatsApp (o maior risco operacional)
 - O conector usa **Baileys**, biblioteca **não oficial**. Os Termos do WhatsApp proíbem automação não autorizada. O número pode ser **banido**, e isso pode acontecer sem aviso.
@@ -44,11 +44,11 @@ Cada programa tem termos próprios. O que o autor aplica:
 - O TikTok exige **auditoria** para postagem pública por API (ver `07-redes-sociais.md`).
 - Não automatize o login de contas pessoais.
 
-## 8. Se você for vender ou revender este kit
-- Defina uma **licença** (o `LICENSE` do V0 é provisório) e um **contrato** com escopo, o que está incluso, limites de suporte e **isenção**: o autor não controla contas de terceiros nem garante resultado.
-- Cada cliente usa **suas** contas e chaves. Nunca ponha contas do cliente em um servidor seu sem contrato claro.
-- Deixe explícito o risco de bloqueio do WhatsApp (item 1) por escrito.
-- Veja `17-comercial.md`.
+## 8. Distribuição para testes (e, no futuro, venda)
+- **Agora:** o kit é distribuído **gratuitamente** a um grupo pequeno de pessoas de confiança, em repositório **privado**, para testar. Quem testa usa **as suas próprias** contas e chaves e instala no **seu** servidor.
+- O autor **não** guarda senhas, tokens nem acesso ao servidor de quem testa. Nunca compartilhe chaves nem a sessão do WhatsApp com ninguém.
+- O risco de bloqueio do WhatsApp (item 1) vale para **todos**: leia antes de ligar a publicação real e comece em modo simulação.
+- **Se um dia houver venda:** defina licença e contrato (o `LICENSE` atual é provisório), escopo de suporte e isenção sobre contas de terceiros, com orientação jurídica. Fica para depois dos testes (`17-distribuicao-e-testes.md`).
 
 ## 9. Resumo de "o que nunca fazer"
 1. Burlar captcha ou usar contas de terceiros sem autorização.

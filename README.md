@@ -5,7 +5,9 @@ Robô que **monitora, filtra, enriquece e publica ofertas e cupons** de e-commer
 > ## ⚠️ Você precisa de um **servidor**
 > O robô tem que ficar **ligado 24 h por dia**: não roda no seu PC/notebook do dia a dia nem no celular. O **mínimo** é a configuração do servidor onde ele roda hoje, um **Dell Wyse 3040**: processador de **4 núcleos a 1,44 GHz** (turbo até 1,92 GHz; Intel Atom x5-Z8350), **2 GB de RAM**, **24 GB de armazenamento no total**, rede cabeada e Debian 13. Detalhes, medições reais e alternativas em [`docs/01a-servidor-e-requisitos.md`](docs/01a-servidor-e-requisitos.md).
 
-> **Status: V0 (primeira versão para compartilhar).** O código é o mesmo que roda em produção, mas foi limpo dos dados pessoais do autor. A documentação foi escrita a partir do servidor real. **A instalação ainda não foi testada do zero numa máquina limpa** — leia `docs/00-LEIA-PRIMEIRO.md` antes de começar.
+> **Status: V0 em fase de testes** (distribuição gratuita para um grupo pequeno; ainda não está à venda). Veja `docs/17-distribuicao-e-testes.md`.
+>
+> **V0 (primeira versão para compartilhar).** O código é o mesmo que roda em produção, mas foi limpo dos dados pessoais do autor. A documentação foi escrita a partir do servidor real. **A instalação ainda não foi testada do zero numa máquina limpa** — leia `docs/00-LEIA-PRIMEIRO.md` antes de começar.
 
 ## O que ele faz
 
@@ -18,7 +20,7 @@ Robô que **monitora, filtra, enriquece e publica ofertas e cupons** de e-commer
 
 ## O que NÃO vem aqui
 
-- Suas contas, chaves e grupos (cada comprador usa os seus). Veja `.env.example`.
+- Suas contas, chaves e grupos (cada pessoa que for testar usa as suas). Veja `.env.example`.
 - Logos, artes e textos de marca do autor (`src/app/assets/LEIA-ME.md` explica o que colocar).
 - O estúdio de vídeo que roda num PC potente (gerador de Reels, voz clonada). A **fila** que recebe os vídeos prontos está aqui; a fábrica não. Veja `docs/08-conteudo-e-reels.md` e `prompts/05-pipeline-de-reels-no-pc.md`.
 - Garantia de resultado de vendas ou de que contas de terceiros (WhatsApp, Meta, afiliados) não sofrerão bloqueio. Leia `docs/12-riscos-e-termos.md`.
